@@ -1,2 +1,2 @@
 # laravel-admin
-[Currently under construction] Admin backend build with Laravel and Semantic-UI.
+[Currently under construction] Admin backend build with Laravel 5 and Semantic-UI.
