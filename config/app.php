@@ -145,6 +145,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /*
+         * Laravel-IDE-Helper
+         */
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 	],
 
 	/*

@@ -1,46 +1,107 @@
-<html>
-	<head>
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+@extends('app')
 
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
+@section('content')
+    <div class="main">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="column sixteen wide">
+                    <div class="ui segment">
+                        <h2 class="ui dividing header">留言板</h2>
 
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
+                        <div class="ui feed">
+                            <div class="event">
+                                <div class="label">
+                                    <img src="/image/user.png">
+                                </div>
+                                <div class="content">
+                                    <div class="summary">
+                                        <span class="ui blue label">游客1</span>
+                                        很高兴来到这里！
+                                        <div class="date">
+                                            1 Hour Ago
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <a class="like">
+                                            <i class="like icon"></i> 4 个赞
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
+                            <div class="event">
+                                <div class="label">
+                                    <img src="/image/user.png">
+                                </div>
+                                <div class="content">
+                                    <div class="summary">
+                                        <span class="ui blue label">游客2</span>
+                                        很高兴来到这里！
+                                        <div class="date">
+                                            1 Hour Ago
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <a class="like">
+                                            <i class="like icon"></i> 4 个赞
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-			.title {
-				font-size: 96px;
-				margin-bottom: 40px;
-			}
+                            <div class="event">
+                                <div class="label">
+                                    <img src="/image/user.png">
+                                </div>
+                                <div class="content">
+                                    <div class="summary">
+                                        <span class="ui blue label">游客2232</span>
+                                        很高兴来到这里！
+                                        <div class="date">
+                                            1 Hour Ago
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <a class="like">
+                                            <i class="like icon"></i> 4 个赞
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-			.quote {
-				font-size: 24px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
-			</div>
-		</div>
-	</body>
-</html>
+                        <!-- Pagination start -->
+                        <div class="ui column center aligned">
+                            <div class="ui buttons ">
+                                <div class="ui labeled icon button yellow">
+                                    <i class="left refresh icon"></i>
+                                    最新
+                                </div>
+                                <a class="ui labeled icon button teal">
+                                    <i class="left chevron icon"></i>
+                                    上一页
+                                </a>
+                                <a class="ui right labeled icon button">
+                                    下一页
+                                    <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Pagination end -->
+
+                        <div class="ui divider"></div>
+
+                        <form class="ui form">
+                            <div class="field">
+                                <label>留下评论</label>
+                                <textarea name="content"></textarea>
+                            </div>
+
+                            <button type="submit" class="ui submit button green right floated">发布</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

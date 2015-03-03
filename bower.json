@@ -1,0 +1,30 @@
+{
+  "name": "Jot",
+  "version": "0.1.1",
+  "homepage": "https://github.com/AaronJan/Laravel-admin",
+  "private": true,
+  "authors": [
+    "AaronJan <aaronjan@qq.com>"
+  ],
+  "description": "Just a simple blog build with Laravel 5 & Semantic UI.",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "blog",
+    "laravel",
+    "semanticui"
+  ],
+  "license": "ApacheV2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~1.10.4"
+  }
+}
