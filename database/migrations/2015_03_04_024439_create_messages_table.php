@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessageTable extends Migration {
+class CreateMessagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,13 @@ class CreateMessageTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('message', function(Blueprint $table)
-        {
+		Schema::create('messages', function(Blueprint $table)
+		{
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('content', 500);
-            $table->dateTime('created_at');
-        });
+            $table->timestamps();
+		});
 	}
 
 	/**
@@ -28,7 +28,7 @@ class CreateMessageTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('message');
+		Schema::drop('messages');
 	}
 
 }

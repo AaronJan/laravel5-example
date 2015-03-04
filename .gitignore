@@ -5,3 +5,5 @@
 composer.lock
 _ide_helper.php
 /public/bower/*
+/public/css/*
+

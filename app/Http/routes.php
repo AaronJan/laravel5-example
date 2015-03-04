@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,7 +13,19 @@
 |
 */
 
+//首页
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+//用户相关
+Route::group(['prefix' => '/user/'], function()
+{
+    //注册
+    Route::get('register', 'User\RegisterController@index');
 
+    //登陆
+
+
+    //修改密码
+
+
+});
