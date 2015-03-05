@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'zh-cn',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -145,8 +145,13 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /**
+         * Illuminate Html Compound
+         */
+        'Illuminate\Html\HtmlServiceProvider',
+
         /*
-         * Laravel-IDE-Helper
+         * Laravel-IDE-Helper (for code auto-completion)
          */
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 	],
@@ -196,6 +201,12 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+        /**
+         * Illuminate Html Compound
+         */
+        'Form'  => 'Illuminate\Html\FormFacade',
+        'Html'  => 'Illuminate\Html\HtmlFacade',
 
 	],
 

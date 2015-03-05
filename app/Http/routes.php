@@ -17,15 +17,8 @@
 Route::get('/', 'WelcomeController@index');
 
 //用户相关
-Route::group(['prefix' => '/user/'], function()
-{
-    //注册
-    Route::get('register', 'User\RegisterController@index');
-
-    //登陆
+Route::controller('user', 'UserController');
 
 
-    //修改密码
 
 
-});

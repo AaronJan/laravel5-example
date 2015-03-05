@@ -9,17 +9,14 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller {
 
-    public function index()
+    public function getRegister()
     {
         return view('user.register');
     }
 
-    public function create()
+    public function postRegister()
     {
-        $input = Request::all();
-
-        $timeNow = Carbon::now();
-
-
+        return view('user.register');
     }
+
 }
