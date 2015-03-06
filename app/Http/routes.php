@@ -17,8 +17,9 @@
 Route::get('/', 'WelcomeController@index');
 
 //用户相关
-Route::controller('user', 'UserController');
+Route::controller('auth', 'AuthController');
 
-
+//留言
+Route::post('/message/store', 'MessageController@store');
 
 

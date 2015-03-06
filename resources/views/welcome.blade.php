@@ -1,42 +1,34 @@
 @extends('app')
 
 @section('content')
+    @include('_topbar')
+
     <div class="page-welcome">
         <div class="ui container">
-            <!-- 注册、登陆提示 start -->
-            <div class="ui stacked segment">
-                <div class="ui two column middle aligned relaxed fitted stackable grid">
-                    <div class="column">
-                        <form action="?" method="post" class="ui form">
-                            <div class="field">
-                                <label>用户名</label>
-                                <div class="ui left icon input">
-                                    <input type="text" placeholder="用户名">
-                                    <i class="user icon"></i>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label>密码</label>
-                                <div class="ui left icon input">
-                                    <input type="password" placeholder="密码">
-                                    <i class="lock icon"></i>
-                                </div>
-                            </div>
-                            <button class="ui blue submit button fluid">登陆</button>
-                        </form>
-                    </div>
-                    <div class="ui vertical divider">
-                        或
-                    </div>
-                    <div class="center aligned column">
-                        <a href="#" class="huge green ui labeled icon button">
-                            <i class="signup icon"></i>
-                            注册
-                        </a>
+
+            @if (!$authed)
+                <!-- 注册、登陆提示 start -->
+                <div class="ui stacked segment">
+                    <div class="ui two column middle aligned relaxed fitted stackable grid">
+                        <div class="center aligned column">
+                            <a href="{{ url('/auth/login') }}" class="huge blue ui labeled icon button">
+                                <i class="signup icon"></i>
+                                登陆
+                            </a>
+                        </div>
+                        <div class="ui vertical divider">
+                            或
+                        </div>
+                        <div class="center aligned column">
+                            <a href="{{ url('/auth/register') }}" class="huge green ui labeled icon button">
+                                <i class="signup icon"></i>
+                                注册
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- 注册、登陆提示 end -->
+                <!-- 注册、登陆提示 end -->
+            @endif
 
             <!-- 留言区域 start -->
             <div class="ui grid">
@@ -45,65 +37,27 @@
                         <h2 class="ui dividing header">留言板</h2>
 
                         <div class="ui feed">
-                            <div class="event">
-                                <div class="label">
-                                    <img src="/image/user.png">
-                                </div>
-                                <div class="content">
-                                    <div class="summary">
-                                        <span class="ui blue label">游客1</span>
-                                        很高兴来到这里！
-                                        <div class="date">
-                                            1 Hour Ago
+                            @foreach($messages as $message)
+                                <div class="event">
+                                    <div class="label">
+                                        <img src="/image/user.png">
+                                    </div>
+                                    <div class="content">
+                                        <div class="summary">
+                                            <span class="ui blue label">游客1</span>
+                                            {{ $message->content }}
+                                            <div class="date">
+                                                {{ $message->created_at->diffForHumans() }}
+                                            </div>
+                                        </div>
+                                        <div class="meta">
+                                            <a class="like">
+                                                <i class="like icon"></i> 点赞
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="meta">
-                                        <a class="like">
-                                            <i class="like icon"></i> 4 个赞
-                                        </a>
-                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="event">
-                                <div class="label">
-                                    <img src="/image/user.png">
-                                </div>
-                                <div class="content">
-                                    <div class="summary">
-                                        <span class="ui blue label">游客2</span>
-                                        很高兴来到这里！
-                                        <div class="date">
-                                            1 Hour Ago
-                                        </div>
-                                    </div>
-                                    <div class="meta">
-                                        <a class="like">
-                                            <i class="like icon"></i> 4 个赞
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="event">
-                                <div class="label">
-                                    <img src="/image/user.png">
-                                </div>
-                                <div class="content">
-                                    <div class="summary">
-                                        <span class="ui blue label">游客2232</span>
-                                        很高兴来到这里！
-                                        <div class="date">
-                                            1 Hour Ago
-                                        </div>
-                                    </div>
-                                    <div class="meta">
-                                        <a class="like">
-                                            <i class="like icon"></i> 4 个赞
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                         <!-- Pagination start -->
@@ -127,14 +81,33 @@
 
                         <div class="ui divider"></div>
 
-                        <form class="ui form">
-                            <div class="field">
-                                <label>留言</label>
-                                <textarea name="content"></textarea>
-                            </div>
+                        @if ($authed)
+                            @if (count($errors) > 0)
+                                <div class="ui primary inverted red segment">
+                                    @foreach ($errors->all() as $error)
+                                        <p>{{$error}}</p>
+                                    @endforeach
+                                </div>
+                            @endif
 
-                            <button type="submit" class="ui submit button green fluid">发布</button>
-                        </form>
+                            <form action="/message/store" method="post" class="ui form">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                <div class="field">
+                                    <label>留言</label>
+                                    <textarea name="content"></textarea>
+                                </div>
+
+                                <button type="submit" class="ui submit button green fluid">发布</button>
+                            </form>
+                        @else
+                            <div class="ui info message">
+                                <p>
+                                    登陆后即可留言！
+                                </p>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

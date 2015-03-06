@@ -1,6 +1,22 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\Guard;
+use Auth;
+use App\Message;
+
+/**
+ * Class WelcomeController
+ * @package App\Http\Controllers
+ */
 class WelcomeController extends Controller {
+
+    /**
+     * The Guard implementation.
+     *
+     * @var Guard
+     */
+    protected $auth;
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,19 +34,29 @@ class WelcomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(Guard $auth)
 	{
-
+        $this->auth = $auth;
 	}
 
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(Request $request)
 	{
-		return view('welcome');
+        $authed = false;
+
+        if ($this->auth->check()) {
+            $authed   = true;
+            $userInfo = Auth::user()->toArray();
+        }
+
+        //获取最新的留言
+        $messages = Message::all();
+
+        return view('welcome', compact('authed', 'userInfo', 'messages'));
 	}
 
 }
