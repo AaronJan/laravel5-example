@@ -46,13 +46,6 @@ class WelcomeController extends Controller {
      */
     public function index(Request $request)
 	{
-        $authed = false;
-
-        if ($this->auth->check()) {
-            $authed   = true;
-            $userInfo = Auth::user()->toArray();
-        }
-
         //获取最新的留言   数量？   排序？
         $messages = Message::orderBy('updated_at', 'desc')->paginate(false);
 

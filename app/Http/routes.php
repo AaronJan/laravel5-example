@@ -22,4 +22,3 @@ Route::controller('auth', 'AuthController');
 //留言
 Route::post('/message/store', 'MessageController@store');
 
-

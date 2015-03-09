@@ -1,7 +1,7 @@
 <div class="ui fixed menu">
     <div class="item title"><i class="browser icon"></i> 留言板</div>
 
-    @if ($authed)
+    @if ($userInfo)
         <div class="right menu">
             <div class="item">{{ $userInfo['name'] }}</div>
             <a class="item" href="/auth/logout">注销</a>

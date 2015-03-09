@@ -6,7 +6,7 @@
     <div class="page-welcome">
         <div class="ui container">
 
-            @if (!$authed)
+            @if (!$userInfo)
                 <!-- 注册、登陆提示 start -->
                 <div class="ui stacked segment">
                     <div class="ui two column middle aligned relaxed fitted stackable grid">
@@ -69,7 +69,7 @@
 
                         <div class="ui divider"></div>
 
-                        @if ($authed)
+                        @if ($userInfo)
                             @if (count($errors) > 0)
                                 <div class="ui primary inverted red segment">
                                     @foreach ($errors->all() as $error)
