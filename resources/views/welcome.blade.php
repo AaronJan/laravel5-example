@@ -29,7 +29,6 @@
                 </div>
                 <!-- 注册、登陆提示 end -->
             @endif
-
             <!-- 留言区域 start -->
             <div class="ui grid">
                 <div class="column sixteen wide">
@@ -37,24 +36,26 @@
                         <h2 class="ui dividing header">留言板</h2>
 
                         <div class="ui feed">
-                            @foreach($messages as $message)
+                            @foreach($messages->getCollection()->all() as $message)
                                 <div class="event">
                                     <div class="label">
                                         <img src="/image/user.png">
                                     </div>
                                     <div class="content">
                                         <div class="summary">
-                                            <span class="ui blue label">游客1</span>
+                                            <span class="ui blue label">{{ $message->user()->getResults()->name }}</span>
                                             {{ $message->content }}
                                             <div class="date">
                                                 {{ $message->created_at->diffForHumans() }}
                                             </div>
                                         </div>
+                                        <!-- 未实现点赞
                                         <div class="meta">
                                             <a class="like">
                                                 <i class="like icon"></i> 点赞
                                             </a>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
                             @endforeach
@@ -62,20 +63,7 @@
 
                         <!-- Pagination start -->
                         <div class="ui column center aligned">
-                            <div class="ui buttons ">
-                                <div class="ui labeled icon button yellow">
-                                    <i class="left refresh icon"></i>
-                                    最新
-                                </div>
-                                <a class="ui labeled icon button teal">
-                                    <i class="left chevron icon"></i>
-                                    上一页
-                                </a>
-                                <a class="ui right labeled icon button teal disabled">
-                                    下一页
-                                    <i class="right chevron icon"></i>
-                                </a>
-                            </div>
+                            {!! with(new App\Presenter\SemanticUiPresenter($messages))->render() !!}
                         </div>
                         <!-- Pagination end -->
 

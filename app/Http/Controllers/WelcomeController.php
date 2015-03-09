@@ -53,8 +53,8 @@ class WelcomeController extends Controller {
             $userInfo = Auth::user()->toArray();
         }
 
-        //获取最新的留言
-        $messages = Message::all();
+        //获取最新的留言   数量？   排序？
+        $messages = Message::orderBy('updated_at', 'desc')->paginate(false);
 
         return view('welcome', compact('authed', 'userInfo', 'messages'));
 	}

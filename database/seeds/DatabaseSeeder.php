@@ -14,6 +14,16 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+        // $faker = Faker\Factory::create();
+
+        $this->command->info('User table seeded!');
+
+
+
+        $this->command->info('Message table seeded!');
+
+
+
 		// $this->call('UserTableSeeder');
 	}
 
