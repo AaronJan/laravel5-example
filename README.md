@@ -1,7 +1,8 @@
 Laravel 5 Example
 ================================
 
-This repo is for my personal use, started for Laravel 5 & Yii 2 comparison.
+This repo is for my personal use, started for Laravel 5 & Yii 2 comparison. The original `laravel-admin` project has 
+become `laravel-blog`(because I need a clean blog system), it's [in here](https://github.com/AaronJan/laravel-blog).
 
 This is a comment system DEMO written by Laravel 5, if you can get to know about Laravel 5 from this, I'll be very glad for you.
 
