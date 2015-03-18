@@ -49,10 +49,10 @@
                                                 {{ $message->created_at->diffForHumans() }}
                                             </div>
                                         </div>
-                                        <!-- 未实现点赞
+                                        <!-- Haven't been implemented yet
                                         <div class="meta">
                                             <a class="like">
-                                                <i class="like icon"></i> 点赞
+                                                <i class="like icon"></i> Like
                                             </a>
                                         </div>
                                         -->
