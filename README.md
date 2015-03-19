@@ -8,4 +8,4 @@ This is a comment system DEMO written with `Laravel 5` and `Semantic-UI`, if you
 
 After I written this, I found a [more complicated example](https://github.com/bestmomo/laravel5-example), you may like that.
 
-If you are interesting at learning about `Yii 2`, my other [Yii 2 example](https://github.com/AaronJan/yii2-example)*OMG，my code is missing from Github* may demonstrated a little Yii 2.
+If you are interesting at learning about `Yii 2`, my other [Yii 2 example](https://github.com/AaronJan/yii2-example) **OMG，my code is missing from Github** may demonstrated a little Yii 2.
