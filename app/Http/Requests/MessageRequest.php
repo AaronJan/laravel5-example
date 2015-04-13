@@ -52,8 +52,8 @@ class MessageRequest extends FormRequest {
     public function messages()
     {
         return [
-            'content.required' => '请填写留言.',
-            'content.between'  => '留言长度为:min到:max个字符.',
+            'content.required' => 'The :attribute field is required.',
+            'content.between'  => 'The :attribute must be between :min and :max characters.',
         ];
     }
 

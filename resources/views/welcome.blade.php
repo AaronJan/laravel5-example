@@ -7,33 +7,33 @@
         <div class="ui container">
 
             @if (!$userInfo)
-                <!-- 注册、登陆提示 start -->
+                <!-- regist,login section - start -->
                 <div class="ui stacked segment">
                     <div class="ui two column middle aligned relaxed fitted stackable grid">
                         <div class="center aligned column">
                             <a href="{{ url('/auth/login') }}" class="huge blue ui labeled icon button">
                                 <i class="signup icon"></i>
-                                登陆
+                                login
                             </a>
                         </div>
                         <div class="ui vertical divider">
-                            或
+                            OR
                         </div>
                         <div class="center aligned column">
                             <a href="{{ url('/auth/register') }}" class="huge green ui labeled icon button">
                                 <i class="signup icon"></i>
-                                注册
+                                regist
                             </a>
                         </div>
                     </div>
                 </div>
-                <!-- 注册、登陆提示 end -->
+                <!-- regist,login section - end -->
             @endif
-            <!-- 留言区域 start -->
+            <!-- comment setction - start -->
             <div class="ui grid">
                 <div class="column sixteen wide">
                     <div class="ui segment">
-                        <h2 class="ui dividing header">留言板</h2>
+                        <h2 class="ui dividing header">Message board</h2>
 
                         <div class="ui feed">
                             @foreach($messages->getCollection()->all() as $message)
@@ -82,16 +82,16 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <div class="field">
-                                    <label>留言</label>
+                                    <label>Message</label>
                                     <textarea name="content"></textarea>
                                 </div>
 
-                                <button type="submit" class="ui submit button green fluid">发布</button>
+                                <button type="submit" class="ui submit button green fluid">publish</button>
                             </form>
                         @else
                             <div class="ui info message">
                                 <p>
-                                    登陆后即可留言！
+                                    Login to leave a message!
                                 </p>
                             </div>
                         @endif
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <!-- 留言区域 end -->
+            <!-- comment section - end -->
         </div>
     </div>
 @endsection

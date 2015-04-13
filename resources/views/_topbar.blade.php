@@ -1,17 +1,17 @@
 <div class="ui fixed menu">
-    <div class="item title"><i class="browser icon"></i> 留言板</div>
+    <div class="item title"><i class="browser icon"></i> Message board</div>
 
     @if ($userInfo)
         <div class="right menu">
             <div class="item">{{ $userInfo['name'] }}</div>
-            <a class="item" href="/auth/logout">注销</a>
-            <!-- <a class="item" href="#">管理后台</a> -->
+            <a class="item" href="/auth/logout">Logout</a>
+            <!-- <a class="item" href="#">Something hidden</a> -->
         </div>
     @else
         <div class="right menu">
-            <a class="item" href="/auth/login">登陆</a>
-            <a class="item" href="/auth/register">注册</a>
-            <!-- <a class="item" href="#">管理后台</a> -->
+            <a class="item" href="/auth/login">Login</a>
+            <a class="item" href="/auth/register">Regist</a>
+            <!-- <a class="item" href="#">Something hidden</a> -->
         </div>
     @endif
 </div>

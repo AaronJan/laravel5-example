@@ -35,11 +35,11 @@ class UserAuthRequest extends FormRequest {
     public function messages()
     {
         return [
-            'name.required'            => '用户名为必填项目.',
-            'name.between'             => '用户名长度为:min到:max个字符.',
+            'name.required'            => 'The :attribute field is required.',
+            'name.between'             => 'The :attribute must be between :min and :max characters.',
 
-            'password.required'        => '密码为必填项目.',
-            'password.between'         => '密码长度为:min到:max个字符.',
+            'password.required'        => 'The :attribute field is required.',
+            'password.between'         => 'The :attribute must be between :min and :max characters.',
         ];
     }
 
